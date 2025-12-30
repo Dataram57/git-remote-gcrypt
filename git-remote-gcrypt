@@ -525,14 +525,14 @@ ensure_connected()
 	URL=${URL%"#$url_frag"}
 
 	################################
-	echo -e "\033[0;32mdr57\033[0m: Hello!"
+	echo_info "-- dr57 > Hello!"
 	url_frag_custom=${URL##*"#"}
 	isnoteq "$url_frag_custom" "$URL" || url_frag_custom=
 	URL=${URL%"#$url_frag_custom"}
 
 	#check custom manifest file name
 	if [ ! -z "$url_frag_custom" ]; then
-		echo -e "\033[0;32mdr57\033[0m: Custom Manifestfile detected."
+		echo_info "-- dr57 > Custom Manifestfile detected."
 		Manifestfile=$(xecho_n "$url_frag_custom" | gpg_hash SHA224)
 	fi
 	#Manifestfile can be altered by the next outer url_frag

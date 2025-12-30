@@ -524,6 +524,19 @@ ensure_connected()
 	isnoteq "$url_frag" "$URL" || url_frag=
 	URL=${URL%"#$url_frag"}
 
+	################################
+	url_frag_custom=${URL##*"#"}
+	isnoteq "$url_frag_custom" "$URL" || url_frag_custom=
+	URL=${URL%"#$url_frag_custom"}
+
+	#check custom manifest file name
+	if [ !-z "$url_frag_custom" ]; then
+		Manifestfile=$(xecho_n "$url_frag_custom" | gpg_hash SHA224)
+	fi
+	#Manifestfile can be altered by the next outer url_frag
+
+	################################
+
 	# manifestfile -- sha224 hash if we can, else the default location
 	if isurl sftp "$URL" || islocalrepo "$URL" || isurl rsync "$URL" || isurl rclone "$URL"
 	then

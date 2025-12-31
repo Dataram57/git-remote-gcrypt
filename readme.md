@@ -6,12 +6,12 @@ Please read the old [readme](./old_README.rst) for more details and instructions
 
 ## Important changes
 
-* remote urls now must use `gcrypt-dr57::` instead of `gcrypt::`.
+- remote urls now must use `gcrypt-dr57::` instead of `gcrypt::`.
 
 ## Feauters
 
-* Pushes now use the current timestamp and locally defined user.
-* Custom `Manifestfile` name defined in the remote url:
+- Pushes now use the current timestamp and locally defined user name(`remote.$NAME.gcrypt-commituser`) and email(`remote.$NAME.gcrypt-commitemail`).
+- Custom `Manifestfile` name defined in the remote url:
     - Scheme: `gcrypt-dr57::REMOTE_URL#MANIFEST_FILE_NAME#`.
     - Scheme with specific branch: `gcrypt-dr57::REMOTE_URL#MANIFEST_FILE_NAME#BRANCHNAME`.
     - Example: `gcrypt-dr57::https://github.com/Dataram57/test#my_manifest_file#my_branch_name#`. Note that you must

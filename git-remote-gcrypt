@@ -174,9 +174,8 @@ gitception_get()
 anon_commit()
 {
 	################################
-	####git config --get "remote.$NAME.gcrypt-signingkey" '.+'
-	local user_name="$(git config --get user.name 2>/dev/null || echo "Anon")"
-    local user_email="$(git config --get user.email 2>/dev/null || echo "@")"
+	local user_name="$(git config --get "remote.$NAME.gcrypt-commituser" 2>/dev/null || echo "Anon")"
+    local user_email="$(git config --get "remote.$NAME.gcrypt-commitemail" 2>/dev/null || echo "@")"
     local current_time="$(date +%s)"
 
 	GIT_AUTHOR_NAME="$user_name" \
